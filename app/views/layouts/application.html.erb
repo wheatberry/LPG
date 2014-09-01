@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LPG</title>
+  <title>The License Plate Game!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<p>
+	<%= link_to 'sign up', new_user_path %> | 
+	<%= link_to 'players', users_path %> | 
+	<%= link_to 'sign in', new_session_path %> | 
+	 
+</p>
 
 <%= yield %>
 

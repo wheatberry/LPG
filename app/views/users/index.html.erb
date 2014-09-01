@@ -1,0 +1,7 @@
+<h1>Player's Index</h1>
+<ol>
+	By Highest Score:
+	<%= @users.scores.order(:points).each do |list| %>
+	<li><%= list.name %> | <%= list.points %> | <%= link_to 'Profile', user_path(@user) %></li>
+</ol>
+<% end %>

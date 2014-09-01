@@ -1,0 +1,22 @@
+<h1><%= @user.name %>'s Page</h1>
+
+<h2>Total Points: </h2> 
+
+<h1>Add a new plate</h1>
+
+<%= form_for([@user, @user.scores.build]) do |f| %>
+<p>
+	<%= f.label :current_location, "Current Location" %>
+	<%= f.text_field :current_location %>
+</p> 
+<p>
+	<%= f.label :plate_spotted %>
+	<%= f.text_field :plate_spotted %>
+</p>
+<p>
+	<%= f.submit %>
+</p>
+<% end %>
+
+
+

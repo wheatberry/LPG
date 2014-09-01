@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_location: MyString
+  plate_spotted: MyString
+  points: 1.5
+  user_id: 
+
+two:
+  current_location: MyString
+  plate_spotted: MyString
+  points: 1.5
+  user_id: 

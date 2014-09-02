@@ -1,6 +1,21 @@
 <h1><%= @user.name %>'s Page</h1>
 
-<h2>Total Points: </h2> 
+<h2>Total Points: <%= @user.scores %></h2> 
+
+<table>
+	<tr>
+		<th>Current Location</th>
+		<th>Plate Spotted</th>
+		<th>Date</th>
+	</tr>
+	<tr>
+		<% @user.scores.each do |list| %>
+		<td><%= list.current_location %></td>
+		<td><%= list.plate_spotted %></td>
+		<td><%= list.created_at %></td>
+		<% end %>
+	</tr>
+</table>
 
 <h1>Add a new plate</h1>
 

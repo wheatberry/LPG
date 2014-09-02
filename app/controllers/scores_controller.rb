@@ -6,6 +6,7 @@ class ScoresController < ApplicationController
 	def create
 		@user = User.find(params[:user_id])
 		@score = @user.scores.create(score_params)
+		# get location data from distances model and calculate points
 		redirect_to user_path(@user)
 	end
 
@@ -25,6 +26,6 @@ class ScoresController < ApplicationController
 	private
 
 		def score_params 
-			params.require(:score).permit(:current_location, :plate_spotted)
+			params.require(:score).permit(:current_location, :plate_spotted, :points, :user_id)
 		end
 end

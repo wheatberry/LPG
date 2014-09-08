@@ -11,14 +11,24 @@
 <p>
 	<%= link_to 'home', root_path %> |
 	<%= link_to 'sign up', new_user_path %> | 
-	<%= link_to 'players', users_path %> | 
-	<%= link_to 'sign in', new_session_path %> | 
+	
+	<!--<%= link_to 'sign in', new_session_path %> | -->
 	<%= link_to 'about', static_pages_about_path %> |
 	<%= link_to 'contact us', new_contact_path %> | 
-	<!--  #link_to 'profile', user_path(@user)  | -->
+	
+	<% if logged_in? %>
+	<strong>Hey, <%= current_user.name %>'s in the Game!</strong>
+		<%= link_to 'players', users_path %> |
+		<%= link_to 'profile', @current_user %> |
+		<%= link_to 'logout', session_path(@current_user), method: :delete %> | 
+		<% else %>
+		<%= link_to 'login', new_session_path %> | 
+		<% end %>
 </p>
 
 <%= yield %>
 
 </body>
 </html>
+
+

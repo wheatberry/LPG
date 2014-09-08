@@ -1,12 +1,14 @@
 class ScoresController < ApplicationController
 
-	
-
+	def new
+		@score = Score.new
+	end
 
 	def create
 		@user = User.find(params[:user_id])
 		@score = @user.scores.create(score_params)
-		# get location data from distances model and calculate points
+		distance_calc(1.0, 5.0) 
+
 		redirect_to user_path(@user)
 	end
 
@@ -15,6 +17,15 @@ class ScoresController < ApplicationController
 		@score = @user.scores.find(params[:id])
 	end
 
+	def update
+		@user = User.find(params[:user_id])
+		@score = @user.scores.find(params[:id])
+		if @score.update(score_params)
+			redirect_to @user
+		else
+			#render 'edit'
+		end
+	end
 
 	def destroy
 		@user = User.find(params[:user_id])
@@ -29,3 +40,5 @@ class ScoresController < ApplicationController
 			params.require(:score).permit(:current_location, :plate_spotted, :points, :user_id)
 		end
 end
+
+

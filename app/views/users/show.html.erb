@@ -1,20 +1,23 @@
 <h1><%= @user.name %>'s Page</h1>
 
-<h2>Total Points: <%= @user.scores %></h2> 
+<h2>Total Points: <%= @user.scores.sum(:points) %></h2> 
 
 <table>
 	<tr>
 		<th>Current Location</th>
 		<th>Plate Spotted</th>
+		<th>Points</th>
 		<th>Date</th>
 	</tr>
 	<tr>
 		<% @user.scores.each do |list| %>
 		<td><%= list.current_location %></td>
 		<td><%= list.plate_spotted %></td>
-		<td><%= list.created_at %></td>
-		<% end %>
+		<td><%= list.points %></td>
+		<td><%= list.created_at.strftime("%d %b. %Y") %></td>
+		
 	</tr>
+	<% end %>
 </table>
 
 <h1>Add a new plate</h1>
@@ -22,16 +25,53 @@
 <%= form_for([@user, @user.scores.build]) do |f| %>
 <p>
 	<%= f.label :current_location, "Current Location" %>
-	<%= f.text_field :current_location %>
+
+	<% f.fields_for :distance do |d| %>
+ 	<%= d.collection_select(:current_location, @distances, :id, :state_abbrev)  %>
+ <% end %>
 </p> 
 <p>
 	<%= f.label :plate_spotted %>
-	<%= f.text_field :plate_spotted %>
+	<%= f.select :plate_spotted, options_for_select(%w[Alabama Alaska Arizona Arkansas California Colorado Connecticut Delaware Florida Georgia Hawaii Idaho Illinois Indiana Iowa Kansas Kentucky Louisiana Maine Maryland Massachusetts Michigan Minnesota Mississippi Missouri Montana Nebraska Nevada New Hampshire New Jersey New Mexico New York North Carolina North Dakota Ohio Oklahoma Oregon Pennsylvania Rhode Island South Carolina South Dakota Tennessee Texas Utah Vermont Virginia Washington West Virginia Wisconsin Wyoming]) %>
 </p>
 <p>
 	<%= f.submit %>
 </p>
 <% end %>
+
+<!--
+	
+<% f.fields_for :distances do |r| %>
+ <%= r.collection_select(:distance, user_id, @distances, :id, :state_abbrev)  %>
+ <% end %>
+
+  <%= f.collection_select(:distance, :plate_spotted, Distance.all, :id, :state_abbrev :selected => @user.id)  %>
+
+
+
+<%= collection_select(:person, :city_id, City.all, :id, :name) %>
+
+
+
+
+collection_select(:post, :author, Author.all, :id, :name)
+  # Returns: 
+  # <select name="post[author_id]"> 
+  #   <option value="value_method">text_method</option> 
+  #   <option value="2">Rida</option> 
+  #   .. 
+  # </select>
+
+
+
+collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {})
+
+
+collection_select ‘model field’, ‘collection of options in the dropdown menu’, ‘model field for values’, ‘model field to show in the menu’
+
+collection_select( method, collection, value_method, text_method, options = {}, html_options = {})
+
+-->
 
 
 

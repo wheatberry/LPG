@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 get "static_pages/about", to: 'static_pages#about'
 get 'login', to: "sessions#new"
-get 'logout', to: 'sessions#destroy'
-resources :sessions#, only: [:new, :create, :destroy] 
+#get 'logout', to: 'sessions#destroy'
+resources :sessions, only: [:new, :create, :destroy] 
 resources :users do
   resources :scores
 end

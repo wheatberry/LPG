@@ -1,2 +1,30 @@
 <h1>Contact Us!</h1>
-<p>Your feedback is welcome.</p>
+
+
+
+	<p>Your feedback is welcome.</p>
+
+	<%= form_for @contact, url: contacts_path do |f| %>
+	<% @contact.errors.full_messages.each do  |msg| %>
+	<ul>	
+	<li><%= msg %></li>
+	</ul>
+	<% end %>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</p>
+	<p>
+		<%= f.label :message %>
+		<%= f.text_area :message %>
+	</p>
+	<p>
+		<%= f.submit "Send Message" %>
+	</p>
+<% end %>
+
+

@@ -1,14 +1,15 @@
 <h1>Welcome to the License Plate Game!</h1>
 <h2>Today's Top Players: </h2>
 
-<ol>
-	<% User.all.limit(3).each do |list| %>
-	<li><%= list.name %> | </li>
-	<% end %>
-</ol>
 
-<ol>
-	<% User.all.each do |list| %>
-	<li><%= list.name %> | </li>
-	<% end %>
-</ol>
+
+		<%= top_three.html_safe %>
+		
+		
+		
+
+
+
+
+
+

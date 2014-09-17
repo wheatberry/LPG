@@ -1,9 +1,22 @@
 <h1>Player's Index</h1>
 <h2>By Highest Score:</h2>
 
+ 	
 
-<ol>
-	<% @users.each do |list| %>
-	<li><%= list.name %> | </li>
+<table>
+	<tr>
+	<% all_hash = {} %>
+
+	<% User.all.each do |list| %>
+	<% all_hash["#{list.name}"] = list.scores.sum(:points).to_i  %>
 	<% end %>
-</ol>
+
+	<% d = all_hash.sort_by {|x, y| y}.reverse %>
+
+	<% d .each do |x, y| %>
+	<td><%= x %></td>
+	<td><%= y %></td>
+	</tr>
+	<% end %>
+	
+</table>

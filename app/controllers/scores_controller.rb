@@ -1,5 +1,9 @@
 class ScoresController < ApplicationController
 
+	def index
+		@scores.all
+	end
+	
 	def new
 		@score = Score.new
 	end
@@ -7,7 +11,8 @@ class ScoresController < ApplicationController
 	def create
 		@user = User.find(params[:user_id])
 		@score = @user.scores.create(score_params)
-		distance_calc(1.0, 5.0) 
+		distance_calc(:current_location, :plate_spotted) 
+		#render text: params[:score].inspect
 
 		redirect_to user_path(@user)
 	end
@@ -23,7 +28,7 @@ class ScoresController < ApplicationController
 		if @score.update(score_params)
 			redirect_to @user
 		else
-			#render 'edit'
+			render 'edit'
 		end
 	end
 

@@ -30,6 +30,8 @@ gem 'foundation-rails'
 # calculate distance on a sphere
 gem 'haversine'
 
+# tableless gem
+gem 'activerecord-tableless'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

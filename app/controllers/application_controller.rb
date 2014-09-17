@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   # force_ssl
  include SessionsHelper
  include ScoresHelper
+ include UsersHelper
 end
 
 

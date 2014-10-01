@@ -26,7 +26,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'foundation-rails'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 # calculate distance on a sphere
 gem 'haversine'
 
@@ -36,6 +38,11 @@ gem 'activerecord-tableless'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+group :production do 
+	gem 'pg'
+	gem 'rails_12factor'
+	gem 'thin'	
+end
 # Use unicorn as the app server
 # gem 'unicorn'
 

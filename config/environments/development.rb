@@ -37,13 +37,18 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true 
   config.action_mailer.raise_delivery_errors = true # it will show error while delivering the mail. 
   config.action_mailer.default :charset => "utf-8"
-
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: "ENV["GMAIL_USER"]", # this should be a real gmail id
-    password: "ENV["GMAIL_PASSWORD"]" # this should be real password of your gmail id
+    address: "smtp.gmail.com", 
+    port: 587, 
+    authentication: "plain", 
+    enable_starttls_auto: true, 
+    user_name: '3681gn@gmail.com', # this should be a real gmail id
+    password: '797f797goog' # this should be real password of your gmail id
   }
+
+  #user_name: 'ENV["GMAIL_USER"]', 
+    #password: 'ENV["GMAIL_PASSWORD"]'
+  #}
+
+
 end

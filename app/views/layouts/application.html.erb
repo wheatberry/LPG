@@ -4,35 +4,52 @@
   <title>The License Plate Game!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
 
-<p>
-	<%= link_to 'home', root_path %> |
-	<%= link_to 'sign up', new_user_path %> | 
-	
-	<!--<%= link_to 'sign in', new_session_path %> | -->
-	<%= link_to 'about', static_pages_about_path %> |
-	<%= link_to 'contact us', new_contact_path %> | 
-	
-	<% if logged_in? %>
-	<strong>Hey, <%= current_user.name %>'s in the Game!</strong>
-		<%= link_to 'players', users_path %> |
-		<%= link_to 'profile', @current_user %> |
-		<%= link_to 'logout', session_path(@current_user), method: :delete %> | 
-		<% else %>
-		<%= link_to 'login', new_session_path %> | 
-		<% end %>
-</p>
+<%= render 'layouts/header.html.erb' %>
 
-<% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <%= image_tag "lpg1.jpg", alt: "lpg" %>
+        <h1>The License Plate Game!</h1>
+      </div>
+    </div>
 
-<%= yield %>
+  <div class="container main ">
 
+      <!-- Example row of columns -->
+      <div class=".col-xs-6 .col-md-4"></div>
+      <div class=".col-xs-6 .col-md-4">
+        <div class"flash">
+          <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+        <div class=".col-xs-6 .col-md-4"></div>
+        
+      </div> 
+
+      <%= render 'layouts/footer' %>
+  </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
+
+
 
 

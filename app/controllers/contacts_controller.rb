@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
+    @feedback = "active"
   end
 
   def create
@@ -13,7 +14,7 @@ class ContactsController < ApplicationController
       flash[:notice] = "Message Sent!"
     else
       render 'new'
-      flash[:notice] = "Failed to create contact"
+      flash.now[:notice] = "Failed to create contact"
     end
   end
 

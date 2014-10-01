@@ -1,22 +1,25 @@
-<h1>Player's Index</h1>
-<h2>By Highest Score:</h2>
+<h2>Player's Index</h2>
+<h3>By Highest Score:</h3>
 
  	
 
-<table>
+<table class='table'>
+
 	<tr>
-	<% all_hash = {} %>
-
-	<% User.all.each do |list| %>
-	<% all_hash["#{list.name}"] = list.scores.sum(:points).to_i  %>
-	<% end %>
-
-	<% d = all_hash.sort_by {|x, y| y}.reverse %>
-
-	<% d .each do |x, y| %>
-	<td><%= x %></td>
-	<td><%= y %></td>
+		<% pen =[] %>
+		<% @array_trio = [] %>
+		<% User.all.each do |list| %>
+			<% pen.push([list.id, list.name, list.scores.sum(:points).to_i]) %>
+		<% end %>
+		<% @array_trio = pen.sort_by{|k| k[2]}.reverse %>
+		<% @array_trio.each do |i| %>
+		
+		<td class="player"><%= link_to i[1], user_path(i[0]) %></td> 
+		<td class="score"><%= i[2] %></td>
 	</tr>
 	<% end %>
 	
+	
 </table>
+
+

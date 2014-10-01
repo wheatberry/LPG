@@ -1,0 +1,111 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  padding-top: 0px;
+  background-color: #F7931E;
+}
+.navbar-inverse {
+    
+        .hey {
+        color: white;
+        
+        float: left;
+        padding: 15px 15px;
+        font-size: 18px;
+        line-height: 20px;
+        height: 50px;
+        }
+    
+
+}
+
+.jumbotron {
+   
+   background-color: #F7931E;
+
+	.container {
+    background-color: #F7931E; 
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 20%;
+    text-align: center;
+
+        h1 {
+        font-family: "Bangers" , "Helvetica Neue UltraLight", Helvetica, sans-serif;//'Audiowide'
+        position: absolute;
+        left: 10%;
+        top: 5%;
+        z-index: 1;
+        color: #fff;
+        text-shadow: 3px 3px 8px #F7931E;
+        }
+
+        h4 {
+        color: white;
+        }
+        
+        img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: auto;
+        }
+	}
+}
+
+//MAIN
+.flash {
+    color: #fff;
+    font_weight: bold;
+}
+.main {
+    h2, h3 {
+        color: #fff;
+        text-shadow: 3px 3px 8px #000;
+    }
+    .list{
+        padding: 15px;
+   }
+   table {
+        color: #fff;
+   }
+form {
+    label{
+       color: #fff; 
+    }
+    
+}
+}
+//CONTACT
+.contact {
+    color:#fff;
+}
+  //PROFILE 
+ .profile {    
+    font-size: 4em;
+    font-family: "Bangers" , "Helvetica Neue UltraLight", Helvetica, sans-serif;//'Audiowide'
+    color: #fff;
+    text-shadow: 3px 3px 8px #fff;
+    span{
+        color:#ffe89f;
+        letter-spacing: 1px;
+    }
+     
+} 
+
+//PLAYER INDEX
+.player, .score {
+    font-family: "Bangers" , "Helvetica Neue UltraLight", Helvetica, sans-serif;//'Audiowide'
+    color: #fff;
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+
+//FOOTER
+footer {
+    color: #fff;
+        
+}

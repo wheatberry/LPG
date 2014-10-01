@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    @logI = "active"
   end
 
   def create
@@ -8,6 +9,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       log_in(@user)
       redirect_to @user
+      
     else
       flash.now[:danger] = "invalid email/password combination"
       render 'new'

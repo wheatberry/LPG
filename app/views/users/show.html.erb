@@ -1,14 +1,17 @@
-<h1><%= @user.name %>'s Page</h1>
 
-<h2>Total Points: <%= @user.scores.sum(:points).to_i %></h2> 
-<h2>Maxiumum score thus far: <%= @user.scores.maximum(:points) %></h2> 
-<table>
+<h2 class='profile'><span><%= @user.name %>'s Page</span></h2>
+<h3>Total Points: <%= @user.scores.sum(:points).to_i %></h3> 
+<h3>Max Score: <%= @user.scores.maximum(:points).to_i %></h3> 
+<table class='table'>
+	<thead>
 	<tr>
 		<th>Current Location</th>
 		<th>Plate Spotted</th>
 		<th>Points</th>
 		<th>Date</th>
 	</tr>
+	</thead>
+	<tbody>
 	<tr>
 		<% @user.scores.each do |list| %>
 		<td><%= list.current_location %></td>
@@ -17,24 +20,26 @@
 		<td><%= list.created_at.strftime("%d %b. %Y") %></td>
 		
 	</tr>
+	</tbody>
 	<% end %>
 </table>
+<% if @user == current_user %>
 
-<h1>Add a new plate</h1>
+	<h2>Rack up some points, add a new plate!</h2>
 
-<%= form_for([@user, @user.scores.build])  do |f| %>
-<p>
-	<%= f.label :current_location, "Current Location:" %>
-	
-	<%= f.collection_select(:current_location, Distance.all, :state_abbrev, :state_abbrev)  %>
- 
-</p> 
-<p>
-	<%= f.label :plate_spotted, "Plate Spotted:" %>
-	<%= f.collection_select(:plate_spotted, Distance.all, :state_abbrev, :state_abbrev)  %>
-</p> 
-<p>
-	<%= f.submit %>
-</p>
+	<%= form_for([@user, @user.scores.build])  do |f| %>
+	<p>
+		<%= f.label :current_location, "Current Location:" %>
+		
+		<%= f.collection_select(:current_location, Distance.all, :state_abbrev, :state_abbrev)  %>
+	 
+	</p> 
+	<p>
+		<%= f.label :plate_spotted, "Plate Spotted:" %>
+		<%= f.collection_select(:plate_spotted, Distance.all, :state_abbrev, :state_abbrev)  %>
+	</p> 
+	<p>
+		<%= f.submit %>
+	</p>
+	<% end %>
 <% end %>
-

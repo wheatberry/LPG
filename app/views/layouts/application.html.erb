@@ -24,18 +24,17 @@
   <div class="container main ">
 
       <!-- Example row of columns -->
+      
       <div class=".col-xs-6 .col-md-4"></div>
       <div class=".col-xs-6 .col-md-4">
-        <div class"flash">
-          <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-          <% end %>
-          <%= yield %>
-        </div>
-        <div class=".col-xs-6 .col-md-4"></div>
-        
+          <div>
+            <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+            <% end %>
+            <%= yield %>
+          </div>
       </div> 
-
+      <div class=".col-xs-6 .col-md-4"></div>
       <%= render 'layouts/footer' %>
   </div> <!-- /container -->
 

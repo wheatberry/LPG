@@ -42,8 +42,8 @@ Rails.application.configure do
     port: 587, 
     authentication: "plain", 
     enable_starttls_auto: true, 
-    user_name: '3681gn@gmail.com', # this should be a real gmail id
-    password: '797f797goog' # this should be real password of your gmail id
+    user_name: Rails.application.secrets.email_provider_username, 
+    password: Rails.application.secrets.email_provider_password
   }
 
   #user_name: 'ENV["GMAIL_USER"]', 

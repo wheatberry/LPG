@@ -46,9 +46,7 @@ Rails.application.configure do
     password: Rails.application.secrets.email_provider_password
   }
 
-  #user_name: 'ENV["GMAIL_USER"]', 
-    #password: 'ENV["GMAIL_PASSWORD"]'
-  #}
+  
 
 
 end

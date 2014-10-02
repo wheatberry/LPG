@@ -1,6 +1,9 @@
 module UsersHelper
 	def top_three
 
+		if User.all.empty? #|| User.all.count < 3)
+			top = "<p> Start the game!</p>"
+		else
 		all_hash = {} 
 		find_id_hash = {}
 

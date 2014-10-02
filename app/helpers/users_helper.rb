@@ -47,8 +47,6 @@ module UsersHelper
 				</tbody>
 				</table>"
 
-
+		end
 	end
-
-	
 end

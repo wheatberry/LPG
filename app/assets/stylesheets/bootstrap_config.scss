@@ -56,14 +56,7 @@ body {
 }
 
 //MAIN
-.alert {
-    color: #fff;
-    font_weight: bold;
-}
 
-.center_form {
-    margin: auto;
-}
 .main {
     h2, h3 {
         color: #fff;
@@ -75,12 +68,19 @@ body {
    table {
         color: #fff;
    }
-form {
-    label{
-       color: #fff; 
+    form {
+        label{
+           color: #fff; 
+        }
+        
     }
-    
-}
+    .alert {
+    font-weight: bold;
+    }
+    .alert-danger {
+        background-color: #ffe89f;
+        border-color: #fff;
+    }
 }
 //CONTACT
 .contact {

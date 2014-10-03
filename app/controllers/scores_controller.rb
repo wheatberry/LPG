@@ -20,6 +20,12 @@ class ScoresController < ApplicationController
 	def show
 		@user = User.find(params[:user_id])
 		@score = @user.scores.find(params[:id])
+		redirect_to @user
+	end
+
+	def edit
+		@user = User.find(params[:user_id])
+		@score = @user.scores.find(params[:id])
 	end
 
 	def update

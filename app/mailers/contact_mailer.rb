@@ -5,7 +5,7 @@ class ContactMailer < ActionMailer::Base
   	@name = contact_info[:name]
   	@email = contact_info[:email]
   	@message = contact_info[:message]
-  	@url = new_contact_url
+  	
 
   	mail(:to => Rails.application.secrets.owner_email, :subject => "A Contact Us Message from: #{@name}", :body => @message)
   end

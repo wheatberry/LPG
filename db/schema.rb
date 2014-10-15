@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901153005) do
+ActiveRecord::Schema.define(version: 20141015172450) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 20140901153005) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "words"
+    t.string   "last_cur_loc"
   end
 
 end

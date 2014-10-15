@@ -20,6 +20,9 @@ module ScoresHelper
 		@score.update(points: @new_points.to_i)
 	end	
 
+	def update_cur_loc
+		@user.update(last_cur_loc: params[:score][:current_location])
+	end
 	
 end
 

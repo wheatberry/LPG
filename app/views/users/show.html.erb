@@ -24,8 +24,8 @@
 	<tbody>
 	<tr>
 		<% @user.scores.each do |list| %>
-		<td><%= list.current_location %></td>
-		<td><%= list.plate_spotted %></td>
+		<td><%= list.current_location.humanize.titlecase %></td>
+		<td><%= list.plate_spotted.humanize.titlecase %></td>
 		<td><%= list.points.to_i %></td>
 		<td><%= list.created_at.strftime("%d %b. %Y") %></td>
 		<% if ( @user == current_user) %>

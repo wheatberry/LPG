@@ -1,6 +1,6 @@
 module ScoresHelper
 
-	def distance_calc(local_now, plate)
+	def distance_calc#(local_now, plate)
 
 		local_now = Distance.find_by(state_abbrev: params[:score][:current_location])
 

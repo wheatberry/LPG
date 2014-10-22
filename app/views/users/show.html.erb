@@ -46,7 +46,7 @@
 	<p>
 		<%= f.label :current_location, "Current Location:" %>
 		
-		<%= f.collection_select(:current_location, Distance.all, :state_abbrev, :state_abbrev, selected: @current_user.last_cur_loc)  %>
+		<%= f.collection_select(:current_location, Distance.all, :state_abbrev, :state_abbrev) %>
 	 
 	</p> 
 	<p>

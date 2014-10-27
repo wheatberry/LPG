@@ -12,7 +12,7 @@ class ScoresController < ApplicationController
 		@user = User.find(params[:user_id])
 		@score = @user.scores.create(score_params)
 		distance_calc#(:current_location, :plate_spotted) 
-		update_cur_loc()
+		update_cur_loc
 		#render text: params[:score].inspect
 
 		redirect_to user_path(@user)
@@ -49,7 +49,7 @@ class ScoresController < ApplicationController
 	private
 
 		def score_params 
-			params.require(:score).permit(:current_location, :plate_spotted, :points, :user_id)
+			params.require(:score).permit(:current_location, :plate_spotted, :points, :user_id, :last_cur_loc)
 		end
 end
 

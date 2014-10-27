@@ -37,7 +37,7 @@
 	</tr>
 	</tbody>
 	<% end %>
-</table>
+</table> 
 <% if @user == current_user %>
 
 	<h2>Rack up some points, add a new plate!</h2>
@@ -46,7 +46,7 @@
 	<p>
 		<%= f.label :current_location, "Current Location:" %>
 		
-		<%= f.collection_select(:current_location, Distance.all, :state_abbrev, :state_abbrev) %>
+		<%= f.collection_select(:current_location, Distance.all, :state_abbrev, :state_abbrev, :selected => @current_user.last_cur_loc ||= "Alabama" ) %>
 	 
 	</p> 
 	<p>
@@ -54,7 +54,7 @@
 		<%= f.collection_select(:plate_spotted, Distance.all, :state_abbrev, :state_abbrev)  %>
 	</p> 
 	<p>
-		<%= f.submit %>
+		<%= f.submit %> 
 	</p>
 	<% end %>
 <% end %>

@@ -11,7 +11,7 @@ class ScoresController < ApplicationController
 	def create
 		@user = User.find(params[:user_id])
 		@score = @user.scores.create(score_params)
-		distance_calc#(:current_location, :plate_spotted) 
+		distance_calc(:current_location, :plate_spotted) 
 		update_cur_loc
 		#render text: params[:score].inspect
 
